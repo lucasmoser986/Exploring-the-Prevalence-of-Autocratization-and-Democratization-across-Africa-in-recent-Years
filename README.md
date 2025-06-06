@@ -1,2 +1,1 @@
-# Exploring-the-Prevalence-of-Autocratization-and-Democratization-across-Africa-in-recent-Years
-Term Paper for Lecture Governance and Institutions in Sub-Saharan Africa (2022)
+This project identifies and analyses the trends of autocratization and democatization episodes acoss Afica fom 2000 to 2020 using V-Dem's Democracy Index.

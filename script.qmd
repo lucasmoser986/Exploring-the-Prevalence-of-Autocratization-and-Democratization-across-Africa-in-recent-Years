@@ -1,0 +1,423 @@
+---
+title: "Exploring the Prevalence of Autocratization and Democratization across Africa in recent Years"
+subtitle: "Lecture Governance and Institutions in Sub-Saharan Africa, University of Zurich"
+author:
+  - name: Lucas Moser
+lang: en
+date: "06/20/2022"
+date-format: long
+format: 
+  pdf:
+    toc-title: Table of contents
+    toc: true
+    toc-depth: 2
+    documentclass: scrreprt
+    mainfont: "Times New Roman"
+    fig-pos: "h"
+    tbl-pos: "h"
+    geometry: 
+      - top = 20mm
+      - left = 30mm
+      - right = 30mm
+      - bottom = 30mm
+classoption: abstract
+keep-tex: true
+abstract: |
+  This paper examines the prevalence of autocratization and democratization episodes in African countries from 2000 to 2020 in the context of an ongoing third global wave of autocratization. I find that democratization has occurred more often and affected more countries than autocratization while both processes unfold with similar magnitudes and durations within countries. However, autocratization has gained prevalence considerably in the latter half of the period and now overshadows democratization. The years around 2010 might mark the beginning of a grave wave of autocratization across Africa. Especially if democratization fails to pick back up in the coming years.
+execute:
+  echo: false
+  warning: false
+knitr::opts_chunk(message: FALSE, set(dev = 'eps'))
+include-in-header:
+  text: |
+   \usepackage{authblk}
+---
+
+# Introduction
+
+Processes of democratization and autocratization are key interests in the field of
+democracy studies. While the global share of democracies has greatly increased in the
+past century (Lührmann et al. 2018: 65), we are now experiencing a third global wave
+of autocratization that started in 1994 (Lührmann and Lindberg 2019). Looking at a
+continent where democracy is not the predominant form of governance, this paper will
+explore trends in democratization and autocratization across Africa in recent years. I
+will investigate changes in democratic quality and incidents of coups to find out
+whether a wave of autocratization is also affecting Africa or whether democratization
+processes still have the upper hand. Furthermore, I will examine differences in the
+occurrence of autocratization and democratization in autocracies and democracies as
+well as regional differences. <br>
+
+Struggles for democracy in most African countries started right after their
+independence. There was little trust among citizens that the new elites who had gained
+power by successfully leading movements for independence would fulfill their political
+promises. However, the success of movements for democracy was meager across the
+continent due to various reasons. As citizens felt neglected by their state, they began
+organizing in communal institutions and against the state (for example by refusing to
+pay taxes). On the other hand, political and economic elites began constructing parallel
+states to enrich themselves after realizing that they lacked both hegemony and
+accountability. Both contributed to a growing disconnect between citizens and the
+state (Ihonvbere 1996: 344-346). Moreover, most prodemocracy movements didn’t
+effectively challenge the predominant autocratic patterns of politics, were not
+organized bottom-up (instead lead by politicians or former military officers) and failed
+to appeal to new political constituencies. They also faced difficulties in broad
+mobilization due to their elitist programs, neglect of women and reliance on religion
+and ethnicity. Some prodemocracy movements were directly funded by incumbent
+authoritarian regimes (Ihonvbere 1996: 350-358). As a result, a majority of African
+states are still authoritarian today despite large majorities of Africans wanting democracy and rejecting authoritarian regimes such as presidential, military and one-party dictatorships (Mattes and Bratton: 2016).
+
+# Research Question and Hypotheses
+
+I intend on identifying and exploring trends of democratization and autocratization across Africa in recent years, more specifically since 2000. Has there been a change over time? Are different processes playing out in democracies and autocracies? Are there regional differences? <br>
+
+Following Lührmann and Lindberg (2019: 1099-1101), I conceptualize democratization as any development that strengthens the principles of liberal democracy such as free and fair elections and the rule of law. Conversely, autocratization is defined as the opposite. To distinguish democracies and autocracies, I consider countries with de-facto multiparty and free and fair elections as democracies. Considering the difficult history of democratization in Africa and the ongoing global wave of autocratization, I expect autocratization to be more prevalent than democratization. <br>
+
+Because of the higher number of autocracies, I expect both autocratization and democratization to occur more often in autocracies than democracies. <br>
+
+However, I expect the democratization developments to be stronger on average than the autocratization developments since there is more room for improvement of democratic quality than deterioration (because of the higher number of autocracies). While autocratization can occur both suddenly and gradually over time, democratization is more likely to occur suddenly. Therefore, I expect episodes of autocratization to be longer on average. <br>
+
+Lührmann and Lindberg (2019: 1102) find that historically, 80% of autocratization episodes that started in democracies ended in autocracy. I expect to find a similar pattern across Africa in recent years. <br>
+
+Finally with regards to regional differences, I expect that democratization will be more prevalent in some regions and autocratization in others as a result of diffusion processes.
+
+# Research Design
+
+My statistical analysis is oriented around Lührmann and Lindberg’s (2019) empirical overview of all autocratization episodes worldwide from 1900 to 2017. They measure changes in democratic quality using the Electoral Democracy Index (EDI, v2x_polyarchy) of the V-Dem dataset. The EDI is a sophisticated, fine-grained index on a continuous scale from 0 to 1 that measures the de-facto democratic qualities of all countries for every year since 1789. Its constituting variables are oriented around Dahl’s (1971) conceptualization of “polyarchy”: democracy with free and fair elections, alternative sources of information and freedom of expression and association. They identify autocratization episodes, operationalized as a decline of at least 0.1 in the EDI within one year or over a connected time period. A potential autocratization episodes starts with a decline of just 0.01 in the EDI from one year to the next and ends if there is no further decline of at least 0.01 for four years (to capture gradual and slow moving processes) or if there is an increase of at least 0.02 during one of those years (which would mark a potential democratization episode). If the total decline over the time period amounts to at least 0.1, an autocratization episode is manifest. To distinguish democracies and autocracies, they use Lührmann et al.’s (2018) Regimes of the World (RoW) classification of democracies as countries with de-facto multiparty and free and fair elections. <br>
+
+Using the same operationalization, I will produce an empirical overview of all autocratization episodes and democratization episodes (operationalized analogously) for 55 African countries^[The de-facto state of Somaliland is included as well as South Sudan starting in 2011] from 2000 to 2020. I will use the EDI of the most recent version of V-Dem data (Coppedge et al. 2022) as well as a refined version of RoW data by Herre (2021) for classifications of democracies and autocracies. Additionally, I will compare the autocratization episodes that I find to a dataset of coup d’états (Peyton et al. 2020) to further explore the means by which autocratization is occurring. I recognize a coup as corresponding to an autocratization episode if it occurs between two years before the start of the episode and the year of the end of the episode.
+
+# Results and Discussion
+
+```{r}
+#Load data
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(huxtable)
+#subset and save full vdem data set (https://www.v-dem.net/data/the-v-dem-dataset/country-year-v-dem-fullothers-v15/)
+if (FALSE) {
+vdem = read.csv("V-Dem-CY-Full+Others-v15.csv")
+vdem = vdem %>% filter(year %in% 2000:2020) %>%
+  select(c("country_name", "year", "v2x_polyarchy", "v2x_regime", "e_regiongeo"))
+colnames(vdem) = c("country", "year", "dem", "regime", "region")
+vdem$region = case_match(vdem$region, 5 ~ "North", 6 ~ "West", 7 ~ "Middle", 8 ~ "East", 9 ~ "South")
+vdem$regime = case_match(vdem$regime, 0 ~ "Closed autocracy", 1 ~ "Electoral autocracy",
+                        2 ~ "Electoral democracy", 3 ~ "Liberal democracy")
+vdem$country = ifelse(vdem$country == "Democratic Republic of the Congo", "Dem. Rep. Congo", vdem$country)
+vdem = na.omit(vdem)
+save(vdem, file = "vdem.rds")
+}
+load("vdem.rds")
+
+#Autocratization episodes
+aut_episodes<-data.frame (Country  = c(NA), Start = c(NA), End=c(NA), Change=c(NA), Regime_Start=c(NA),
+                          Regime_End=c(NA), Region=c(NA))
+
+for (i in unique(vdem$country)) {
+  vdemc = vdem %>% filter(country == i)
+  j = 1
+  while (j < nrow(vdemc)) {
+    if (vdemc$dem[j] - vdemc$dem[j+1] >= 0.01) {
+      k = j+1
+      c = max(3 - (nrow(vdemc) - k), 0)
+      tc = 0
+      while(k <= nrow(vdemc)) {
+        if (k < nrow(vdemc)) {
+          while(c < 3) {
+            if (vdemc$dem[k] - vdemc$dem[k+1] <= -0.02) {
+              if (vdemc$dem[j] - vdemc$dem[k] >= 0.1) {
+                k = intersect(which(vdemc$dem == min(vdemc$dem[j:k])), j:k)[1]
+                aut_episodes = rbind(aut_episodes, c(i, vdemc$year[j], vdemc$year[k], vdemc$dem[k] - vdemc$dem[j],
+                                                     vdemc$regime[j], vdemc$regime[k], vdemc$region[j]))
+                j = k + 1
+                k = nrow(vdemc) + 1
+                c = 3
+                tc = 0
+              } else {
+                j = k
+                k = nrow(vdemc) + 1
+                c = 3
+                tc = 0
+              }
+            } else if (vdemc$dem[k] - vdemc$dem[k+1] <= 0.01) {
+                tc = tc+1
+                c = c+1
+                if (c == 3) {
+                  k = intersect(which(vdemc$dem == min(vdemc$dem[(k-tc):k])), (k-tc):k)[1]
+                  if (vdemc$dem[j] - vdemc$dem[k] >= 0.1) {
+                    aut_episodes = rbind(aut_episodes, c(i, vdemc$year[j], vdemc$year[k], vdemc$dem[k] - vdemc$dem[j],
+                                                         vdemc$regime[j], vdemc$regime[k], vdemc$region[j]))
+                  }
+                  j = k
+                  k = nrow(vdemc) + 1
+                }
+                k = k+1
+            } else {
+              k = k+1
+              c = max(3 - (nrow(vdemc) - k), 0)
+              tc = 0
+            }
+          }
+        } else {
+          if (vdemc$dem[j] - vdemc$dem[k] >= 0.1) {
+            k = intersect(which(vdemc$dem == min(vdemc$dem[(k-tc):k])), (k-tc):k)[1]
+            aut_episodes = rbind(aut_episodes, c(i, vdemc$year[j], vdemc$year[k], vdemc$dem[k] - vdemc$dem[j],
+                                                 vdemc$regime[j], vdemc$regime[k], vdemc$region[j]))
+          }
+          j = nrow(vdemc)
+          k = nrow(vdemc) + 1
+          c = 3
+          tc = 0
+        }
+      }
+    } else {
+      j = j+1
+    }
+  }
+}
+aut_episodes = aut_episodes[-1,]
+aut_episodes = aut_episodes %>% arrange(Start, End, Country)
+
+table1 = huxtable(aut_episodes[,1:6]) %>%
+  insert_row("Table 1: Autocratization episodes in African countries, 2000-2020", fill = "", colspan = 6) %>%
+  set_bottom_border(row = 1:2, col = 1:6)
+table1[2, 4:6] = c("Change in EDI", "Regime Type at Start", "Regime Type at End")
+number_format(table1)[3:nrow(table1), 4] = 2
+number_format(table1)[1, 1] = 0
+
+#Democratization episodes
+dem_episodes<-data.frame (Country  = c(NA), Start = c(NA), End=c(NA), Change=c(NA), Regime_Start=c(NA),
+                          Regime_End=c(NA), Region=c(NA))
+
+for (i in unique(vdem$country)) {
+  vdemc = vdem %>% filter(country == i)
+  j = 1
+  while (j < nrow(vdemc)) {
+    if (vdemc$dem[j] - vdemc$dem[j+1] <= -0.01) {
+      k = j+1
+      c = max(3 - (nrow(vdemc) - k), 0)
+      tc = 0
+      while(k <= nrow(vdemc)) {
+        if (k < nrow(vdemc)) {
+          while(c < 3) {
+            if (vdemc$dem[k] - vdemc$dem[k+1] >= 0.02) {
+              if (vdemc$dem[j] - vdemc$dem[k] <= -0.1) {
+                k = intersect(which(vdemc$dem == max(vdemc$dem[j:k])), j:k)[1]
+                dem_episodes = rbind(dem_episodes, c(i, vdemc$year[j], vdemc$year[k], vdemc$dem[k] - vdemc$dem[j],
+                                                     vdemc$regime[j], vdemc$regime[k], vdemc$region[j]))
+                j = k + 1
+                k = nrow(vdemc) + 1
+                c = 3
+                tc = 0
+              } else {
+                j = k
+                k = nrow(vdemc) + 1
+                c = 3
+                tc = 0
+              }
+            } else if (vdemc$dem[k] - vdemc$dem[k+1] >= -0.01) {
+              tc = tc+1
+              c = c+1
+              if (c == 3) {
+                k = intersect(which(vdemc$dem == max(vdemc$dem[(k-tc):k])), (k-tc):k)[1]
+                if (vdemc$dem[j] - vdemc$dem[k] <= -0.1) {
+                  dem_episodes = rbind(dem_episodes, c(i, vdemc$year[j], vdemc$year[k], vdemc$dem[k] - vdemc$dem[j],
+                                                       vdemc$regime[j], vdemc$regime[k], vdemc$region[j]))
+                }
+                j = k
+                k = nrow(vdemc) + 1
+              }
+              k = k+1
+            } else {
+              k = k+1
+              c = max(3 - (nrow(vdemc) - k), 0)
+              tc = 0
+            }
+          }
+        } else {
+          if (vdemc$dem[j] - vdemc$dem[k] <= -0.1) {
+            k = intersect(which(vdemc$dem == max(vdemc$dem[(k-tc):k])), (k-tc):k)[1]
+            dem_episodes = rbind(dem_episodes, c(i, vdemc$year[j], vdemc$year[k], vdemc$dem[k] - vdemc$dem[j],
+                                                 vdemc$regime[j], vdemc$regime[k], vdemc$region[j]))
+          }
+          j = nrow(vdemc)
+          k = nrow(vdemc) + 1
+          c = 3
+          tc = 0
+        }
+      }
+    } else {
+      j = j+1
+    }
+  }
+}
+dem_episodes = dem_episodes[-1,]
+dem_episodes = dem_episodes %>% arrange(Start, End, Country)
+
+table21 = huxtable(dem_episodes[1:ceiling(nrow(dem_episodes) / 2), 1:6]) %>%
+  insert_row("Table 2: Democratization episodes in African countries, 2000-2020", fill = "", colspan = 6) %>%
+  set_bottom_border(row = 1:2, col = 1:6)
+table21[2, 4:6] = c("Change in EDI", "Regime Type at Start", "Regime Type at End")
+number_format(table21)[3:nrow(table21), 4] = 2
+number_format(table21)[1, 1] = 0
+table22 = huxtable(dem_episodes[(ceiling(nrow(dem_episodes) / 2) + 1):nrow(dem_episodes), 1:6]) %>%
+  insert_row("Table 2 (cont.): Democratization episodes in African countries, 2000-2020", fill = "", 
+             colspan = 6) %>%
+  set_bottom_border(row = 1:2, col = 1:6)
+table22[2, 4:6] = c("Change in EDI", "Regime Type at Start", "Regime Type at End")
+number_format(table22)[3:nrow(table22), 4] = 2
+number_format(table22)[1, 1] = 0
+
+#Summary stats
+n_aut = nrow(aut_episodes)
+n_dem = nrow(dem_episodes)
+n_aut_countries = length(unique(aut_episodes$Country))
+n_dem_countries = length(unique(dem_episodes$Country))
+
+aut_episodes$Change = as.numeric(aut_episodes$Change)
+dem_episodes$Change = as.numeric(dem_episodes$Change)
+ttest1 = t.test(abs(aut_episodes$Change), dem_episodes$Change)
+aut_episodes$Duration = as.numeric(aut_episodes$End) - as.numeric(aut_episodes$Start)
+dem_episodes$Duration = as.numeric(dem_episodes$End) - as.numeric(dem_episodes$Start)
+ttest2 = t.test(abs(aut_episodes$Duration), dem_episodes$Duration)
+
+dem_regimes_start = table(dem_episodes$Regime_Start)
+dem_regimes_end = table(dem_episodes[which(!grepl("dem", dem_episodes$Regime_Start)),]$Regime_End)
+aut_regimes_start = table(aut_episodes$Regime_Start)
+aut_regimes_end = table(aut_episodes[which(!grepl("aut", aut_episodes$Regime_Start)),]$Regime_End)
+
+
+#Ongoing episodes each year (graph)
+aut_years = c()
+for (i in seq(nrow(aut_episodes))) {
+  aut_years = union_all(aut_years, as.numeric(aut_episodes$Start[i]):as.numeric(aut_episodes$End[i]))
+}
+dem_years = c()
+for (i in seq(nrow(dem_episodes))) {
+  dem_years = union_all(dem_years, as.numeric(dem_episodes$Start[i]):as.numeric(dem_episodes$End[i]))
+}
+years = data.frame(Year = 2000:2020)
+years$aut_episodes = unlist(lapply(years$Year, FUN = function(x) length(which(x == aut_years))))
+years$dem_episodes = unlist(lapply(years$Year, FUN = function(x) length(which(x == dem_years))))
+
+plot1 = ggplot(data = years) + geom_line(aes(x = Year, y = aut_episodes, color = "brown3")) +
+  geom_point(aes(x = Year, y = aut_episodes, color = "brown3", shape = "o")) +
+  geom_line(aes(x = Year, y = dem_episodes, color = "chartreuse")) +
+  geom_point(aes(x = Year, y = dem_episodes, color = "chartreuse", shape = "o")) +
+  scale_y_continuous(breaks = seq(0, 13)) +
+  guides(shape = "none") + scale_color_discrete(labels = c("Autocratization", "Democratization")) +
+  labs(title = "Figure 1: Ongoing autocratization and democratization\nepisodes in African countries each year",
+       y = "Ongoing Episodes", x = "",color = "Episode Type") +
+  theme(legend.position = c(0.725, 0.15), plot.title = element_text(size = 12),
+        axis.text = element_text(size = 8), legend.text = element_text(size = 8))
+
+#Number of episodes by country
+countries = data.frame(Country = unique(vdem$country))
+countries$aut_episodes = unlist(lapply(countries$Country, FUN = function(x) length(which(x == aut_episodes$Country))))
+countries$dem_episodes = unlist(lapply(countries$Country, FUN = function(x) length(which(x == dem_episodes$Country))))
+countries = countries %>% arrange(desc(aut_episodes + dem_episodes), desc(aut_episodes), desc(aut_episodes))
+crosstab = table(countries$aut_episodes, countries$dem_episodes)
+
+table3 = huxtable(cbind(countries[1:ceiling(nrow(countries) / 2),],
+                        countries[(ceiling(nrow(countries) / 2) + 1):nrow(countries),])) %>%
+  insert_row("Table 3: Number of autocratization and democratization episodes per country", fill = "", 
+             colspan = 6) %>%
+  set_bottom_border(row = 1:2, col = 1:6)
+table3[2,c(2,3,5,6)] = c("Autocratization", "Democratization", "Autocratization", "Democratization")
+
+#Democracies & Autocracies per year
+vdem$regime2 = unlist(lapply(vdem$regime, FUN = function(x) substr(x, regexpr(" ",x)[1] + 1, nchar(x))))
+years2 = as.data.frame(table(vdem$year, vdem$regime2)) %>% pivot_wider(names_from = Var2, values_from = Freq)
+years2$dem_share = years2$democracy / (years2$democracy + years2$autocracy)
+
+plot2 = ggplot(data = years2, aes(x = as.numeric(levels(Var1))[Var1], y = dem_share)) + geom_line() +
+  geom_point() + scale_y_continuous(limits = c(0, 0.5), labels = scales::percent) +
+  labs(title = "Figure 2: Share of democracies across Africa per year", y = "", x = "", color = "") + 
+  theme(plot.title = element_text(size=12))
+
+#Regions
+regions = data.frame(Region = unique(vdem$region))
+regions$Countries = round(unlist(lapply(regions$Region,
+                                  FUN = function(x) length(which(x == vdem[which(vdem$year == 2020), ]$region)))) /
+  length(unique(vdem$country)) * 100, 0)
+regions = regions %>% arrange(desc(Countries))
+regions$Countries = paste(regions$Countries, "%", sep = "")
+regions$aut_episodes = paste(round(unlist(lapply(
+  regions$Region, FUN = function(x) length(which(x == aut_episodes$Region)))) / nrow(aut_episodes) * 100, 0),
+  "%", sep = "")
+regions$dem_episodes = paste(round(unlist(lapply(
+  regions$Region, FUN = function(x) length(which(x == dem_episodes$Region)))) / nrow(dem_episodes) * 100, 0),
+  "%", sep = "")
+
+table4 = huxtable(regions) %>%
+  insert_row("Table 4: Afican regions' shares of countries, autocratization episodes and democratization episodes", fill = "", colspan = 4) %>%
+  set_bottom_border(row = 1:2, col = 1:4)
+table4[2, 3:4] = c("Autocratization Episodes", "Democratization Episodes")
+table4[3:7, 1] = unlist(lapply(table4[3:7, 1], FUN = function(x) paste(x, "ern Africa", sep = "")))
+table4[5, 1] = "Central Africa"
+
+plot1
+```
+
+For the period from 2000 to 2020, I find 19 autocratization episodes in 17 countries and 33 democratization episodes in 27 countries. Contrary to my expectation, there have been more democratization episodes in more countries. Additionally, only 4 countries only experienced autocratization, while 14 only experienced democratization and both occurred in 13 countries (leaving 24 countries unaffected). Both democatization and autocratization episodes last on average 3.5 years, while the average democratization episode is slightly stronger (EDI increase of 0.22) than the average autocratization episode (EDI decline of 0.18), the difference is not statistically significant, however (*p* = 0.19). Tables 2 though 4 in the appendix list all autocratization and democratization episodes as well as the number of episodes for each country. <br>
+
+Of the 33 democratization episodes, 30 started in autocracies and 15 of those ended in democracy, marking a moderate but notable success for democratization efforts in recent years. On the other hand, 10 of the 19 autocratization episodes started in democracies and 7 of those ended in autocracy. Of the remaining three, two are still ongoing as of 2020. This is evidence for the serious danger autocratization processes pose to the survival of democracies. <br>
+
+Figure 1 above shows the number of ongoing episodes of democratization and autocratization for each year. While democratization episodes clearly outnumbered autocratization episodes in the first decade after 2000, the latter rose to equal levels and stayed consistent thereafter. On the other hand, the number of ongoing democratization episodes dropped off considerably from 9 in 2017 down to just one in 2020. The period from 2010 to 2020 could mark the beginning of a wave of autocratization, especially if the number of democratization episodes does not pick back up again in the coming years. <br>
+
+```{r}
+plot2
+```
+
+Figure 2 above shows that the share of democracies in Africa has slowly increased from around a quarter in 2001 to a third in 2020. While drop offs in 2001 and from 2006 to 2009 were quickly reversed, a reversal of the notable drop starting in 2018 seems less likely due to the prevalence of autocratization over democratization episodes now. <br>
+
+The Cline Center Coup D’état Project Dataset contains 21 instances of successful coups in Africa from 2000 to 2020. Of those, 11 correspond with an autocratization episode. Surprisingly, only three coups took place in democracies (in Sao Tome and Principe, Burkina Faso, Tunisia). While Sao Tome and Principe stayed a democracy and Burkina Faso reverted to democracy in a later democratization episode, Tunisia has moved to autocracy in 2021 as a consequence of the 2019 self-coup (Boese et al. 2022: 18). Many more coups occurring in autocracies could be an explanation for the fact that autocratization episodes starting in autocracies are on average a little shorter than ones starting in democracies. Interestingly, 9 coups occurred between one year before and one year after the start of a democratization episode (and all except one in autocracies). While incidents of coups have been spread out over the period with the median coup occurring in 2011, 2020 and 2021 both having three successful coups could mark the beginning of a worrisome trend (Boese et al. 2022: 2). <br>
+
+While coup d’états have contributed to autocratization across Africa, they have not been the main driver of it. Boese et al. (2022: 25) find that autocratization in Africa in recent years has mainly happened through undermining of legislative constraints on the executive (uniquely in Sub-Saharan Africa) and through limits on freedom of expression (similarly to other regions in the World). Rice (2018) finds that civil conflict is a significant factor to predict democratic backsliding in Africa but also globally. Additionally, economic growth makes backsliding less likely, a relationship that only holds for Sub-Saharan Africa specifically. <br>
+
+With respect to regional differences, Western African countries are overrepresented for democratization and autocratization episodes. While containing 29% of African countries, they experienced 45% of democratization episodes and 37% of autocratization episodes. The other regions are generally underrepresented for democratization episodes. A detailed breakdown of regional differences can be seen in Table 4 in the Appendix.
+
+# Conclusion
+
+Through the analysis of changes in V-Dem’s Electoral Democracy Index over time, we have seen that both autocratization and democratization have happened quite often across Africa in the past 20 years. The EDI is a fine-grained measurement of de-facto democratic quality that integrates many different aspects of liberal democracy. While there are differences in magnitude and duration between autocratization episodes and democratization episodes as well as autocratization episodes starting in autocracies compared to democracies, the differences are rather small and don’t allow me to make inference for these political processes in general. Furthermore, clustering of incidents in Western Africa might be evidence for diffusion. However, the precise mechanisms should be examined further. <br>
+
+The comparison of my findings with a dataset of successful coups in the time period has shown that while coups have played a role for autocratization episodes, they are not the sole drivers of them. There were especially few coups in democracies and autocratization there happened in more gradual terms. <br>
+
+Finally, I am able to conclude with most clarity that in recent years, a serious shift has happened in favor of the predominance of autocratization over democratization. This has been caused by a permanence of autocratization and a sever drop off in ongoing democratization in the past decade, which may well mark the beginning of a prolonged wave of autocratization across Africa. To reverse this trend, prodemocracy movements will have to come back more vigorous and committed than they have been in the past. Studying further developments regarding democratization and autocratization in the coming years will certainly be interesting.
+
+# References
+
+Boese, V. A., M. Lundstedt, K. Morrison, Y. Sato and S. I. Lindberg (2022): State of the world 2021: autocratization changing its nature? *Democratization*: 1-31. <br>
+
+Coppedge, M., J. Gerring, C. H. Knutsen, S. I. Lindberg, J. Teorell, N. Alizada, D. Altman, M. Bernhard, A. Cornell, M. S. Fish, L. Gastaldi, H. Gjerløw, A. Glynn, S. Grahn, A. Hicken, G. Hindle, N. Ilchenko, K. Kinzelbach, J. Krusell, K. L. Marquardt, K. McMann, V. Mechkova, J.Medzihorsky, P. Paxton, D. Pemstein, J.Pernes, O. Rydén, J. von Römer, B. Seim, R. Sigman, S. Skaaning, J. Staton, A. Sundström, E. Tzelgov, Y. Wang, T. Wig, S. Wilson and D. Ziblatt (2022): V-Dem Dataset v12. *Varieties of Democracy (V-Dem) Project.* https://doi.org/10.23696/vdemds22. <br>
+
+Dahl, R. A. (1971): Polyarchy: Participation and Opposition. New Haven, Connecticut: Yale University Press. <br>
+
+Herre, B. (2021): “The Regimes of the World” data: how do researchers identify which countries are democracies? *Our World in Data.* https://ourworldindata.org/regimes-of-the-world-data. <br>
+
+Ihonvbere, J. O. (1996): Where Is the Third Wave? A Critical Evaluation of Africa's Non-Transition to Democracy. *Africa Today* 43(4): 343-367. <br>
+
+Lührmann, A. and S. I. Lindberg (2019): A third wave of autocratization is here: what is new about it? *Democratization* 26(7): 1095-1113. <br>
+
+Lührmann, A., M. Tannenberg and S. I. Lindberg (2018): Regimes of the World (RoW): Opening New Avenues for the Comparative Study of Political Regimes. *Politics and Governance* 6(1): 60-77. <br>
+
+Mattes, R. and M. Bratton (2016): Do Africans still want democracy? Afrobarometer Policy Paper No. 36. <br>
+
+Peyton, B., J. Bajjalieh, D. Shalmon, M. Martin and J. Bonaguro (2021): Cline Center Coup D’état Project Dataset. V.2.0.0. *University of Illinois at Urbana-Champaign.* https://doi.org/10.13012/B2IDB-9651987_V3. <br>
+
+Rice, A. (2018): The African Puzzle: A Study of Democratic Backsliding in Sub Saharan Africa. *Electronic Theses and Dissertations*: 6190. https://stars.library.ucf.edu/etd/6190.
+
+# Appendix
+
+```{r}
+font_size(table1) = 10
+font_size(table21) = 10
+font_size(table22) = 10
+font_size(table3) = 10
+font_size(table4) = 10
+
+table1
+table21
+table22
+table3
+table4
+```
